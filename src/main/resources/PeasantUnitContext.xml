@@ -8,6 +8,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<bean id="peasant" class="org.tyaa.springcontextdemo2.implementations.Peasant"></bean>
-	<bean id="plow" class="org.tyaa.springcontextdemo2.implementations.Plow"></bean>
+	<!-- <bean id="peasant" class="org.tyaa.springcontextdemo2.implementations.Peasant"></bean>
+	<bean id="plow" class="org.tyaa.springcontextdemo2.implementations.Plow"></bean> -->
+	
+	<bean id="peasant" class="org.tyaa.springcontextdemo2.implementations.Peasant" autowire-candidate="false"></bean>
+	<bean id="plow" class="org.tyaa.springcontextdemo2.implementations.Plow"  autowire-candidate="false"></bean>
 </beans>

@@ -8,5 +8,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"
 		>
 
-	<bean id="play_field" class="org.tyaa.springcontextdemo2.implementations.PlayField" lazy-init="true"></bean>
+	<!-- <bean id="play_field" class="org.tyaa.springcontextdemo2.implementations.PlayField" lazy-init="true"></bean> -->
+	
+	<bean id="sea" class="org.tyaa.springcontextdemo2.implementations.PlayFieldSea" lazy-init="true" autowire="byName"></bean>
+	<bean id="play_field" class="org.tyaa.springcontextdemo2.implementations.PlayField" lazy-init="true" autowire="byName"></bean>
+	
+	<!-- Закомментировать в классе "PlayField" поле типа "PlayFieldSea". Добавить  вместо него аналогичное поле с интерфейсным типом.
+	В этом файле конфигурации изменить значения атрибутов autowire так, чтобы автоматическое связывание все равно происходило -->
 </beans>

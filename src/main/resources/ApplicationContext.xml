@@ -10,8 +10,35 @@
 	<import resource="SharedAppContext.xml"/>
 	<import resource="UnitContext.xml"/>
 	
+	<!-- Method injection  -->
 	<bean id="house" class="org.tyaa.springcontextdemo2.implementations.House"
 		depends-on="play_field">
 		<lookup-method name="createUnit" bean="peasant_unit"/>
 	</bean>
+	
+	<!-- Pool  -->
+	<bean id="warriorPool" class="org.tyaa.springcontextdemo2.implementations.WarriorPool"
+		depends-on="play_field">
+		<property name="unitCollection">
+			<list>
+				<null/>
+				<ref bean="warrior_unit"/>
+				<bean class="org.tyaa.springcontextdemo2.builder.Unit"
+					parent="base_warrior_unit" scope="prototype"
+					p:level="12" p:nationality="Russian" p:tool="#{new org.tyaa.springcontextdemo2.implementations.Plow()}">
+					<!-- The constructor is useless  -->
+					<!-- <constructor-arg type="org.tyaa.springcontextdemo2.interfaces.IPerson" ref="peasant" index="0"></constructor-arg>
+					<constructor-arg type="org.tyaa.springcontextdemo2.interfaces.ITool" ref="plow"  index="1"></constructor-arg> -->
+				</bean>
+				<bean class="org.tyaa.springcontextdemo2.builder.Unit"
+					parent="base_warrior_unit" scope="prototype">
+					
+					<property name="level" value="2"></property>
+					<property name="nationality" value="Italian"></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
 </beans>

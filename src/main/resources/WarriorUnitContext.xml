@@ -8,6 +8,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<bean id="warrior" class="org.tyaa.springcontextdemo2.implementations.Warrior"></bean>
-	<bean id="sword" class="org.tyaa.springcontextdemo2.implementations.Sword"></bean>
+	<!-- <bean id="warrior" class="org.tyaa.springcontextdemo2.implementations.Warrior"></bean>
+	<bean id="sword" class="org.tyaa.springcontextdemo2.implementations.Sword"></bean> -->
+	
+	<bean id="warrior" class="org.tyaa.springcontextdemo2.implementations.Warrior" autowire-candidate="true"></bean>
+	<bean id="sword" class="org.tyaa.springcontextdemo2.implementations.Sword" autowire-candidate="true"></bean>
 </beans>

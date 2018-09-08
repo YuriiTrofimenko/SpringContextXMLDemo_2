@@ -27,7 +27,7 @@
 	
 	<!-- Inheritance -->
 	
-	<bean id="base_warrior_unit" class="org.tyaa.springcontextdemo2.builder.Unit"
+	<!-- <bean id="base_warrior_unit" class="org.tyaa.springcontextdemo2.builder.Unit"
 		depends-on="play_field">
 		<property name="person" ref="warrior"></property>
 		<property name="tool" ref="sword"></property>
@@ -37,13 +37,33 @@
 		<constructor-arg value="Russian" type="String"></constructor-arg>
 		<constructor-arg value="3" type="int"></constructor-arg>
 		<property name="tool" ref="plow"></property>
-	</bean>
+	</bean> -->
 	
-	<bean id="russian_l4_warrior_unit"  class="org.tyaa.springcontextdemo2.builder.Unit"
+	<!-- <bean id="russian_l4_warrior_unit"  class="org.tyaa.springcontextdemo2.builder.Unit"
 		c:person="#{new org.tyaa.springcontextdemo2.implementations.Warrior()}"
 		c:tool="#{new org.tyaa.springcontextdemo2.implementations.Sword()}"
 		p:nationality="Russian"
 		p:level="3">
+	</bean> -->
+	
+	<!-- Autowire -->
+	
+	<!-- <bean id="base_warrior_unit" class="org.tyaa.springcontextdemo2.builder.Unit"
+		depends-on="play_field" autowire="byType">
+	</bean> -->
+	
+	<!-- <bean id="russian_l3_warrior_unit" parent="base_warrior_unit" autowire="byType">
+		<property name="level" value="2"></property>
+		<property name="nationality" value="Italian"></property>
+	</bean> -->
+	
+	<bean id="base_warrior_unit" class="org.tyaa.springcontextdemo2.builder.Unit"
+		depends-on="play_field" autowire="byType">
+	</bean>
+	
+	<bean id="russian_l3_warrior_unit" parent="base_warrior_unit" autowire="byType">
+		<property name="level" value="2"></property>
+		<property name="nationality" value="Italian"></property>
 	</bean>
 	
 </beans>
